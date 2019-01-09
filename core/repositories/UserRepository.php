@@ -1,0 +1,113 @@
+<?php
+
+namespace core\repositories;
+
+use core\entities\user\User;
+
+/**
+ * Repository of interaction with the user entity
+ */
+class UserRepository
+{
+	/**
+	 * Get user
+	 * @param $id
+	 * @return User
+	 */
+	public function get($id): User
+	{
+		return $this->getBy(['id' => $id]);
+	}
+
+	/**
+	 * Find by user name or email
+	 * @param $value
+	 * @return User|null
+	 */
+	public function findByUsernameOrEmail($value): ?User
+	{
+		return User::find()->andWhere(['or', ['username' => $value], ['email' => $value]])->one();
+	}
+
+	/**
+	 * Is there a user with this service
+	 * @param $network
+	 * @param $identity
+	 * @return User|null
+	 */
+	public function findByNetworkIdentity($network, $identity): ?User
+	{
+		return User::find()->joinWith('network n')->andWhere(['n.network' => $network, 'n.identity' => $identity])->one();
+	}
+
+	/**
+	 * @param $token
+	 * @return User
+	 */
+	public function getByEmailConfirmToken($token): User
+	{
+		return $this->getBy(['email_confirm_token' => $token]);
+	}
+
+	/**
+	 * @param $email
+	 * @return User
+	 */
+	public function getByEmail($email): User
+	{
+		return $this->getBy(['email' => $email]);
+	}
+
+	/**
+	 * @param $token
+	 * @return User
+	 */
+	public function getByPasswordResetToken($token): User
+	{
+		return $this->getBy(['password_reset_token' => $token]);
+	}
+
+	/**
+	 * @param string $token
+	 * @return bool
+	 */
+	public function existsByPasswordResetToken(string $token): bool
+	{
+		return (bool)User::findByPasswordResetToken($token);
+	}
+
+	/**
+	 * @param User $user
+	 */
+	public function save(User $user): void
+	{
+		if (!$user->save()) {
+			throw new \RuntimeException('Saving error.');
+		}
+	}
+
+	/**
+	 * @param array $condition
+	 * @return User
+	 */
+	private function getBy(array $condition): User
+	{
+		if (!$user = User::find()->andWhere($condition)->limit(1)->one()) {
+			throw new NotFoundException('User not found.');
+		}
+
+		return $user;
+	}
+
+	/**
+	 * @param User $user
+	 * @throws \Throwable
+	 * @throws \yii\db\StaleObjectException
+	 */
+	public function remove(User $user): void
+	{
+		if (!$user->delete()) {
+			throw new \RuntimeException('Removing error.');
+		}
+	}
+}
