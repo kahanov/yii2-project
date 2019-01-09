@@ -32,7 +32,7 @@ return [
     'Development' => [
         'path' => 'dev',
         'setWritable' => [
-			'common/runtime',
+            'common/runtime',
             'backend/runtime',
             'backend/web/assets',
             'frontend/runtime',
@@ -49,7 +49,7 @@ return [
     'Production' => [
         'path' => 'prod',
         'setWritable' => [
-			'common/runtime',
+            'common/runtime',
             'backend/runtime',
             'backend/web/assets',
             'frontend/runtime',
@@ -59,7 +59,7 @@ return [
             'yii',
         ],
         'setCookieValidationKey' => [
-			'common/config/params-local.php',
+            'common/config/params-local.php',
         ],
     ],
 ];

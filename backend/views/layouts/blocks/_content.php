@@ -4,9 +4,10 @@
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 use yii\helpers\Html;
+
 ?>
 <div class="right_col" role="main">
-	<?php if (isset($this->params['h1'])): ?>
+    <?php if (isset($this->params['h1'])): ?>
         <div class="page-title">
             <div class="title_left">
                 <h1><?= $this->params['h1'] ?></h1>
@@ -22,14 +23,14 @@ use yii\helpers\Html;
                 </div>
             </div>
         </div>
-	<?php endif; ?>
+    <?php endif; ?>
     <div class="clearfix"></div>
-	<?= Breadcrumbs::widget([
-		'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-	]) ?>
-	<?= Alert::widget() ?>
+    <?= Breadcrumbs::widget([
+        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+    ]) ?>
+    <?= Alert::widget() ?>
 
-	<?php if (!empty($this->title)) : ?>
+    <?php if (!empty($this->title)) : ?>
         <div class="page-title">
             <div class="title_left">
                 <h3><?= Html::encode($this->title) ?></h3>
@@ -47,7 +48,7 @@ use yii\helpers\Html;
                 </div>
             </div>-->
         </div>
-	<?php endif; ?>
+    <?php endif; ?>
 
-	<?= $content ?>
+    <?= $content ?>
 </div>

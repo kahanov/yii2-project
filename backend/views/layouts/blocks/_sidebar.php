@@ -4,12 +4,13 @@
 use yii\helpers\Url;
 use yii\helpers\Html;
 use backend\widgets\Menu;
+
 ?>
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
 
         <div class="navbar nav_title" style="border: 0;">
-			<?= Html::a('<i class="fa fa-paw"></i><span>' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'site_title']) ?>
+            <?= Html::a('<i class="fa fa-paw"></i><span>' . Yii::$app->name . '</span>', Yii::$app->homeUrl, ['class' => 'site_title']) ?>
         </div>
         <div class="clearfix"></div>
 
@@ -32,11 +33,11 @@ use backend\widgets\Menu;
 
             <div class="menu_section">
                 <h3>General</h3>
-				<?=
-				Menu::widget(
-					[
-						"items" => [
-							["label" => Yii::t('common', 'Главная'), "url" => Url::to(['/']), "icon" => "home"],
+                <?=
+                Menu::widget(
+                    [
+                        "items" => [
+                            ["label" => Yii::t('common', 'Главная'), "url" => Url::to(['/']), "icon" => "home"],
 //							[
 //								"label" => Yii::t('backend/settings', 'Настройки'),
 //								"url" => "javascript:void(0);",
@@ -48,7 +49,7 @@ use backend\widgets\Menu;
 //									],
 //								],
 //							],
-							['label' => 'Users', 'icon' => 'user', 'url' => ['/user/index'], 'active' => $this->context->id == 'user'],
+                            ['label' => 'Users', 'icon' => 'user', 'url' => ['/user/index'], 'active' => $this->context->id == 'user'],
 //							[
 //								"label" => Yii::t('backend/info', 'Информация'),
 //								"url" => "javascript:void(0);",
@@ -74,10 +75,10 @@ use backend\widgets\Menu;
 //									],
 //								],
 //							],
-						],
-					]
-				)
-				?>
+                        ],
+                    ]
+                )
+                ?>
             </div>
         </div>
         <!-- /sidebar menu -->
@@ -94,16 +95,16 @@ use backend\widgets\Menu;
             <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
             </a>
-			<?= Html::a(
-				'<span class="glyphicon glyphicon-off" aria-hidden="true"></span>',
-				['/auth/logout'],
-				[
-					'data-method' => 'post',
-					'data-toggle' => 'tooltip',
-					'data-placement' => 'top',
-					'title' => Yii::t('login', 'Выйти')
-				]
-			) ?>
+            <?= Html::a(
+                '<span class="glyphicon glyphicon-off" aria-hidden="true"></span>',
+                ['/auth/logout'],
+                [
+                    'data-method' => 'post',
+                    'data-toggle' => 'tooltip',
+                    'data-placement' => 'top',
+                    'title' => Yii::t('login', 'Выйти')
+                ]
+            ) ?>
         </div>
         <!-- /menu footer buttons -->
     </div>

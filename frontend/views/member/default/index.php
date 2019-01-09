@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>Hello!</p>
 
     <h2>Attach profile</h2>
-	<?= yii\authclient\widgets\AuthChoice::widget([
-		'baseAuthUrl' => ['member/network/attach'],
-	]); ?>
+    <?= yii\authclient\widgets\AuthChoice::widget([
+        'baseAuthUrl' => ['member/network/attach'],
+    ]); ?>
 </div>

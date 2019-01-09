@@ -17,9 +17,9 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<?= Html::csrfMetaTags() ?>
+    <?= Html::csrfMetaTags() ?>
     <title><?= Yii::t('backend', 'Панель управления') ?></title>
-	<?php $this->head() ?>
+    <?php $this->head() ?>
 </head>
 <body class="nav-<?= !empty($_COOKIE['menuIsCollapsed']) && $_COOKIE['menuIsCollapsed'] == 'true' ? 'sm' : 'md' ?>">
 <?php $this->beginBody(); ?>
@@ -28,19 +28,19 @@ AppAsset::register($this);
     <div class="main_container">
 
         <!-- sidebar -->
-		<?= $this->render('blocks/_sidebar') ?>
+        <?= $this->render('blocks/_sidebar') ?>
         <!-- /sidebar -->
 
         <!-- top navigation -->
-		<?= $this->render('blocks/_top') ?>
+        <?= $this->render('blocks/_top') ?>
         <!-- /top navigation -->
 
         <!-- page content -->
-		<?= $this->render('blocks/_content', ['content' => $content]) ?>
+        <?= $this->render('blocks/_content', ['content' => $content]) ?>
         <!-- /page content -->
 
         <!-- footer content -->
-		<?= $this->render('blocks/_footer') ?>
+        <?= $this->render('blocks/_footer') ?>
         <!-- /footer content -->
     </div>
 

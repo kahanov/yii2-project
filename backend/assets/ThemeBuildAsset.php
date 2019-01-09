@@ -12,7 +12,7 @@ class ThemeBuildAsset extends AssetBundle
         'css/custom.min.css',
     ];
 
-	public $js = [
-		'js/custom.min.js',
-	];
+    public $js = [
+        'js/custom.min.js',
+    ];
 }

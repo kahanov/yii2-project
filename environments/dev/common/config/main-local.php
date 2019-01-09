@@ -15,9 +15,9 @@ return [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
-			'messageConfig' => [
-				'from' => ['support@example.com' => 'Site name']
-			],
+            'messageConfig' => [
+                'from' => ['support@example.com' => 'Site name']
+            ],
         ],
     ],
 ];

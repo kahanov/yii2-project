@@ -10,48 +10,48 @@ use core\repositories\UserRepository;
  */
 class NetworkService
 {
-	private $users;
+    private $users;
 
-	/**
-	 * NetworkService constructor.
-	 * @param UserRepository $users
-	 */
-	public function __construct(UserRepository $users)
-	{
-		$this->users = $users;
-	}
+    /**
+     * NetworkService constructor.
+     * @param UserRepository $users
+     */
+    public function __construct(UserRepository $users)
+    {
+        $this->users = $users;
+    }
 
-	/**
-	 * @param $network
-	 * @param $identity
-	 * @return User
-	 */
-	public function auth($network, $identity): User
-	{
-		if ($user = $this->users->findByNetworkIdentity($network, $identity)) {
-			return $user;
-		}
+    /**
+     * @param $network
+     * @param $identity
+     * @return User
+     */
+    public function auth($network, $identity): User
+    {
+        if ($user = $this->users->findByNetworkIdentity($network, $identity)) {
+            return $user;
+        }
 
-		$user = User::signupByNetwork($network, $identity);
-		$this->users->save($user);
+        $user = User::signupByNetwork($network, $identity);
+        $this->users->save($user);
 
-		return $user;
-	}
+        return $user;
+    }
 
-	/**
-	 * Network is already attached
-	 * @param $id
-	 * @param $network
-	 * @param $identity
-	 */
-	public function attach($id, $network, $identity): void
-	{
-		if ($this->users->findByNetworkIdentity($network, $identity)) {
-			throw new \DomainException('Network is already signed up.');
-		}
+    /**
+     * Network is already attached
+     * @param $id
+     * @param $network
+     * @param $identity
+     */
+    public function attach($id, $network, $identity): void
+    {
+        if ($this->users->findByNetworkIdentity($network, $identity)) {
+            throw new \DomainException('Network is already signed up.');
+        }
 
-		$user = $this->users->get($id);
-		$user->attachNetwork($network, $identity);
-		$this->users->save($user);
-	}
+        $user = $this->users->get($id);
+        $user->attachNetwork($network, $identity);
+        $this->users->save($user);
+    }
 }

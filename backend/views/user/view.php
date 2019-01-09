@@ -32,32 +32,32 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <p>
-		<?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-		<?= Html::a('Delete', ['delete', 'id' => $model->id], [
-			'class' => 'btn btn-danger',
-			'data' => [
-				'confirm' => 'Are you sure you want to delete this item?',
-				'method' => 'post',
-			],
-		]) ?>
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
     </p>
     <div class="x_content">
         <div class="col-md-12 col-lg-12 col-sm-12">
-			<?= DetailView::widget([
-				'model' => $model,
-				'attributes' => [
-					'id',
-					'username',
-					'email:email',
-					[
-						'attribute' => 'status',
-						'value' => UserHelper::statusLabel($model->status),
-						'format' => 'raw',
-					],
-					'created_at:datetime',
-					'updated_at:datetime',
-				],
-			]) ?>
+            <?= DetailView::widget([
+                'model' => $model,
+                'attributes' => [
+                    'id',
+                    'username',
+                    'email:email',
+                    [
+                        'attribute' => 'status',
+                        'value' => UserHelper::statusLabel($model->status),
+                        'format' => 'raw',
+                    ],
+                    'created_at:datetime',
+                    'updated_at:datetime',
+                ],
+            ]) ?>
         </div>
     </div>
 </div>

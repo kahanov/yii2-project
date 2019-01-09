@@ -6,52 +6,53 @@ use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \core\forms\auth\LoginForm */
+/* @var $model \common\forms\auth\LoginForm */
 
 $this->title = 'Sign In';
 
 $fieldOptions1 = [
-	'options' => ['class' => 'form-group'],
-	'inputTemplate' => "{input}"
+    'options' => ['class' => 'form-group'],
+    'inputTemplate' => "{input}"
 ];
 
 $fieldOptions2 = [
-	'options' => ['class' => 'form-group'],
-	'inputTemplate' => "{input}"
+    'options' => ['class' => 'form-group'],
+    'inputTemplate' => "{input}"
 ];
 ?>
 
 <section class="login_content">
     <h1><?= Html::encode($this->title) ?></h1>
 
-	<?= Alert::widget() ?>
+    <?= Alert::widget() ?>
 
-	<?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => true]); ?>
+    <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => true]); ?>
     <div>
-		<?= $form
-			->field($model, 'username', $fieldOptions1)
-			->label(false)
-			->textInput(['placeholder' => $model->getAttributeLabel('username')]) ?>
+        <?= $form
+            ->field($model, 'username', $fieldOptions1)
+            ->label(false)
+            ->textInput(['placeholder' => $model->getAttributeLabel('username')]) ?>
     </div>
     <div>
-		<?= $form
-			->field($model, 'password', $fieldOptions2)
-			->label(false)
-			->passwordInput(['placeholder' => $model->getAttributeLabel('password')]) ?>
+        <?= $form
+            ->field($model, 'password', $fieldOptions2)
+            ->label(false)
+            ->passwordInput(['placeholder' => $model->getAttributeLabel('password')]) ?>
     </div>
     <div>
-		<?= $form->field($model, 'rememberMe')->checkbox() ?>
+        <?= $form->field($model, 'rememberMe')->checkbox() ?>
     </div>
     <div>
-		<?= Html::submitButton('Sign in', ['class' => 'btn btn-default submit', 'name' => 'login-button']) ?>
+        <?= Html::submitButton('Sign in', ['class' => 'btn btn-default submit', 'name' => 'login-button']) ?>
     </div>
-	<?php ActiveForm::end(); ?>
+    <?php ActiveForm::end(); ?>
 
     <div class="clearfix"></div>
 
     <div class="separator">
         <div>
-            <h1><i class="fa fa-paw"></i> <?= Html::encode(Yii::$app->name) ?></h1>
+            <h1><i class="fa fa-paw"></i> <?= Html::encode(Yii::$app->name) ?>
+            </h1>
             <p>&copy;<?= date('Y') ?> <?= Html::encode(Yii::$app->name) ?></p>
         </div>
     </div>

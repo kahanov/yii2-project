@@ -3,6 +3,7 @@
 
 use yii\helpers\Url;
 use yii\helpers\Html;
+
 ?>
 <div class="top_nav">
 
@@ -32,11 +33,11 @@ use yii\helpers\Html;
                             <a href="javascript:;">Help</a>
                         </li>
                         <li>
-							<?= Html::a(
-								'<i class="fa fa-sign-out pull-right"></i>' . Yii::t('login', 'Выйти'),
-								['/auth/logout'],
-								['data-method' => 'post']
-							) ?>
+                            <?= Html::a(
+                                '<i class="fa fa-sign-out pull-right"></i>' . Yii::t('login', 'Выйти'),
+                                ['/auth/logout'],
+                                ['data-method' => 'post']
+                            ) ?>
                         </li>
                     </ul>
                 </li>

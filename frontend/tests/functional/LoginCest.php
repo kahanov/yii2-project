@@ -38,7 +38,7 @@ class LoginCest
         $I->submitForm('#login-form', $this->formParams('admin', 'wrong'));
         $I->see('Incorrect username or password.');
     }
-    
+
     public function checkValidLogin(FunctionalTester $I)
     {
         $I->submitForm('#login-form', $this->formParams('erau', 'password_0'));

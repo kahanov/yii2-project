@@ -6,8 +6,8 @@ use yii\web\AssetBundle;
 
 class ExtensionAsset extends AssetBundle
 {
-	public $basePath = '@webroot';
-	public $baseUrl = '@web';
+    public $basePath = '@webroot';
+    public $baseUrl = '@web';
     public $js = [
         'js/extension.js',
     ];

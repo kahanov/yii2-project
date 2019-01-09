@@ -12,57 +12,57 @@ use backend\forms\user\UserCreateForm;
  */
 class UserManageService
 {
-	private $repository;
+    private $repository;
 
-	/**
-	 * UserManageService constructor.
-	 * @param UserRepository $repository
-	 */
-	public function __construct(UserRepository $repository)
-	{
-		$this->repository = $repository;
-	}
+    /**
+     * UserManageService constructor.
+     * @param UserRepository $repository
+     */
+    public function __construct(UserRepository $repository)
+    {
+        $this->repository = $repository;
+    }
 
-	/**
-	 * @param UserCreateForm $form
-	 * @return User
-	 * @throws \yii\base\Exception
-	 */
-	public function create(UserCreateForm $form): User
-	{
-		$user = User::create(
-			$form->username,
-			$form->email,
-			$form->password
-		);
+    /**
+     * @param UserCreateForm $form
+     * @return User
+     * @throws \yii\base\Exception
+     */
+    public function create(UserCreateForm $form): User
+    {
+        $user = User::create(
+            $form->username,
+            $form->email,
+            $form->password
+        );
 
-		$this->repository->save($user);
+        $this->repository->save($user);
 
-		return $user;
-	}
+        return $user;
+    }
 
-	/**
-	 * @param $id
-	 * @param UserEditForm $form
-	 */
-	public function edit($id, UserEditForm $form): void
-	{
-		$user = $this->repository->get($id);
-		$user->edit(
-			$form->username,
-			$form->email
-		);
-		$this->repository->save($user);
-	}
+    /**
+     * @param $id
+     * @param UserEditForm $form
+     */
+    public function edit($id, UserEditForm $form): void
+    {
+        $user = $this->repository->get($id);
+        $user->edit(
+            $form->username,
+            $form->email
+        );
+        $this->repository->save($user);
+    }
 
-	/**
-	 * @param $id
-	 * @throws \Throwable
-	 * @throws \yii\db\StaleObjectException
-	 */
-	public function remove($id): void
-	{
-		$user = $this->repository->get($id);
-		$this->repository->remove($user);
-	}
+    /**
+     * @param $id
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
+     */
+    public function remove($id): void
+    {
+        $user = $this->repository->get($id);
+        $this->repository->remove($user);
+    }
 }

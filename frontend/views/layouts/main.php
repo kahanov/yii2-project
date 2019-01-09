@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this \yii\web\View */
+
 /* @var $content string */
 
 use yii\helpers\Html;
@@ -41,10 +42,10 @@ AppAsset::register($this);
         ['label' => 'Contact', 'url' => ['/contact/index']],
     ];
     if (Yii::$app->user->isGuest) {
-		$menuItems[] = ['label' => 'Signup', 'url' => ['/auth/signup/request']];
-		$menuItems[] = ['label' => 'Login', 'url' => ['/auth/auth/login']];
+        $menuItems[] = ['label' => 'Signup', 'url' => ['/auth/signup/request']];
+        $menuItems[] = ['label' => 'Login', 'url' => ['/auth/auth/login']];
     } else {
-		$menuItems[] = ['label' => 'Cabinet', 'url' => ['/member/default/index']];
+        $menuItems[] = ['label' => 'Cabinet', 'url' => ['/member/default/index']];
         $menuItems[] = '<li>'
             . Html::beginForm(['/auth/auth/logout'], 'post')
             . Html::submitButton(
@@ -72,7 +73,8 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+        <p class="pull-left">
+            &copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

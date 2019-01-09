@@ -19,7 +19,8 @@ $textColor = $exception->statusCode === 404 ? "text-yellow" : "text-red";
         <h1 class="error-number"><?= $exception->statusCode ?></h1>
         <h2><?= nl2br(Html::encode($message)) ?></h2>
         <p>
-            The above error occurred while the Web server was processing your request.
+            The above error occurred while the Web server was processing your
+            request.
         </p>
         <p>
             Please contact us if you think this is a server error. Thank you.

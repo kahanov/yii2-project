@@ -1,4 +1,5 @@
 <?php
+
 namespace core\tests;
 
 
@@ -19,8 +20,8 @@ namespace core\tests;
  */
 class UnitTester extends \Codeception\Actor
 {
-	use _generated\UnitTesterActions;
-	/**
-	 * Define custom actions here
-	 */
+    use _generated\UnitTesterActions;
+    /**
+     * Define custom actions here
+     */
 }

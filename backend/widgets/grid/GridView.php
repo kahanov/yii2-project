@@ -36,7 +36,7 @@ class GridView extends \yii\grid\GridView
      */
     public $hover = false;
 
-	public $filters_html = '';
+    public $filters_html = '';
 
     /**
      * @inheritdoc
@@ -75,30 +75,31 @@ class GridView extends \yii\grid\GridView
         return Html::tag('div', parent::renderPager(), ['class' => 'dataTables_paginate paging_simple_numbers']);
     }
 
-	public function renderFilters()
-	{
-		if ($this->filters_html) {
-			$yourRows = '<tr class="operate-head"><td colspan="1">' . $this->filters_html . '<td></tr>';
-			return parent::renderFilters() . $yourRows;
-		}
-	}
+    public function renderFilters()
+    {
+        if ($this->filters_html) {
+            $yourRows = '<tr class="operate-head"><td colspan="1">' . $this->filters_html . '<td></tr>';
+            return parent::renderFilters() . $yourRows;
+        }
+    }
 
-	public static function OperationsMenu($links = array()) {
-		if (!empty($links)) {
-			$html = '<div class="operations_menu"><span class="operations_menu__btn"><em class="operations_menu__name"><i class="operations_menu__icon fa fa-cog"></i>Операции<i class="operations_menu__arrow"></i></em><ul class="operations_menu__list">';
+    public static function OperationsMenu($links = array())
+    {
+        if (!empty($links)) {
+            $html = '<div class="operations_menu"><span class="operations_menu__btn"><em class="operations_menu__name"><i class="operations_menu__icon fa fa-cog"></i>Операции<i class="operations_menu__arrow"></i></em><ul class="operations_menu__list">';
 
-			foreach ($links as $link) {
-				$url = $link['url'];
-				$label = $link['label'];
+            foreach ($links as $link) {
+                $url = $link['url'];
+                $label = $link['label'];
 
-				$html .= '<li class="operations_menu__item"><a href="' . $url . '" class="operations_menu__link">' . $label . '</a></li>';
-			}
+                $html .= '<li class="operations_menu__item"><a href="' . $url . '" class="operations_menu__link">' . $label . '</a></li>';
+            }
 
-			$html .= '</ul></span></div>';
+            $html .= '</ul></span></div>';
 
-			return $html;
-		}
+            return $html;
+        }
 
-		return null;
-	}
+        return null;
+    }
 }

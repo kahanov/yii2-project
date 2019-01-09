@@ -1,9 +1,10 @@
 <?php
+
 use yii\helpers\ReplaceArrayValue;
 
 $params = array_merge(
-	require __DIR__ . '/params.php',
-	require __DIR__ . '/params-local.php'
+    require __DIR__ . '/params.php',
+    require __DIR__ . '/params-local.php'
 );
 return [
     'id' => 'app-common-tests',
@@ -12,8 +13,8 @@ return [
         'user' => [
             'class' => 'yii\web\User',
             'identityClass' => 'core\entities\user\User',
-			'identityCookie' => new ReplaceArrayValue(['name' => '_identity', 'httpOnly' => true]),
+            'identityCookie' => new ReplaceArrayValue(['name' => '_identity', 'httpOnly' => true]),
         ],
     ],
-	'params' => $params,
+    'params' => $params,
 ];

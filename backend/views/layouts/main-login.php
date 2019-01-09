@@ -18,20 +18,20 @@ LoginAsset::register($this);
     <head>
         <meta charset="<?= Yii::$app->charset ?>"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<?= Html::csrfMetaTags() ?>
+        <?= Html::csrfMetaTags() ?>
         <title><?= Html::encode($this->title) ?></title>
-		<?php $this->head() ?>
+        <?php $this->head() ?>
     </head>
     <body class="login">
-	<?php $this->beginBody(); ?>
+    <?php $this->beginBody(); ?>
     <div>
         <div class="login_wrapper">
             <div class="animate form login_form">
-				<?= $content ?>
+                <?= $content ?>
             </div>
         </div>
     </div>
-	<?php $this->endBody(); ?>
+    <?php $this->endBody(); ?>
     </body>
     </html>
 <?php $this->endPage(); ?>
